@@ -1,22 +1,12 @@
-// DatabaseConnection.java
-public class DatabaseConnection {
-    public Connection getConnection() {
-        // Implementation to get a connection object
-        return connection;
-    }
-}
+import java.sql.Connection; // Import Connection class
 
-// UserDAO.java
 public class UserDAO {
-    private DatabaseConnection databaseConnection;
+    private Connection connection; // Declare Connection object
 
-    public UserDAO(DatabaseConnection databaseConnection) {
-        this.databaseConnection = databaseConnection;
+    public UserDAO(DatabaseConnection databaseConnection) { // Constructor accepting DatabaseConnection object
+        this.connection = databaseConnection.getConnection(); // Assuming getConnection() method exists in DatabaseConnection
     }
 
-    public void someMethod() {
-        Connection connection = databaseConnection.getConnection();
-        // Use the connection object as needed
-    }
+    // Define other methods as needed
 }
 

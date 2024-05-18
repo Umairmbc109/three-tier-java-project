@@ -11,10 +11,5 @@ public class DatabaseConnection {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        DatabaseConnection dbConnection = new DatabaseConnection();
-        dbConnection.connect();
-    }
 }
 
