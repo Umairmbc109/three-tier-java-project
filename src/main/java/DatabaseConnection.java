@@ -1,25 +1,19 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.Properties;
+import java.io.IOException;
 
 public class DatabaseConnection {
-    private Connection connection;
 
-    public DatabaseConnection() {
+    public void connect() {
         try {
-            Properties properties = new Properties();
-            properties.load(getClass().getClassLoader().getResourceAsStream("database.properties"));
-            String url = properties.getProperty("url");
-            String username = properties.getProperty("username");
-            String password = properties.getProperty("password");
-            connection = DriverManager.getConnection(url, username, password);
-        } catch (SQLException | NullPointerException e) {
-            System.out.println("Error connecting to the database: " + e.getMessage());
+            // Code that may throw IOException
+            // For example:
+            throw new IOException("Simulated IOException");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public Connection getConnection() {
-        return connection;
+    public static void main(String[] args) {
+        DatabaseConnection dbConnection = new DatabaseConnection();
+        dbConnection.connect();
     }
 }
