@@ -14,8 +14,9 @@ FROM openjdk:11-jre-slim
 WORKDIR /app
 
 # Copy the packaged application
-COPY --from=build /app/target/your-app-name.jar ./your-app-name.jar
+COPY --from=build /app/target/HelloWorldTest.java ./HelloWorldTest.java
 
 # Run the Java application
 ENTRYPOINT ["java", "-jar", "HelloWorldTest.java"]
+
 
