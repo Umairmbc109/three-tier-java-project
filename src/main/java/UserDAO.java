@@ -1,27 +1,22 @@
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+// DatabaseConnection.java
+public class DatabaseConnection {
+    public Connection getConnection() {
+        // Implementation to get a connection object
+        return connection;
+    }
+}
 
+// UserDAO.java
 public class UserDAO {
     private DatabaseConnection databaseConnection;
 
-    public UserDAO() {
-        databaseConnection = new DatabaseConnection();
+    public UserDAO(DatabaseConnection databaseConnection) {
+        this.databaseConnection = databaseConnection;
     }
 
-    public List<String> getAllUsers() {
-        List<String> users = new ArrayList<>();
-        try {
-            PreparedStatement statement = databaseConnection.getConnection().prepareStatement("SELECT * FROM users");
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                users.add(resultSet.getString("username"));
-            }
-        } catch (SQLException e) {
-            System.out.println("Error retrieving users: " + e.getMessage());
-        }
-        return users;
+    public void someMethod() {
+        Connection connection = databaseConnection.getConnection();
+        // Use the connection object as needed
     }
 }
+
