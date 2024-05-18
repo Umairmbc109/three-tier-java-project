@@ -1,15 +1,25 @@
-import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DatabaseConnection {
+    private Connection connection;
 
-    public void connect() {
+    public DatabaseConnection() {
+        // Initialize database connection in the constructor
         try {
-            // Code that may throw IOException
-            // For example:
-            throw new IOException("Simulated IOException");
-        } catch (IOException e) {
+            String url = "jdbc:mysql://localhost:3306/mydatabase";
+            String username = "username";
+            String password = "password";
+            this.connection = DriverManager.getConnection(url, username, password);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
+    public Connection getConnection() {
+        return this.connection;
+    }
 }
+
 
